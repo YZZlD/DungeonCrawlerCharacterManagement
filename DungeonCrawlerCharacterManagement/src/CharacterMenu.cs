@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
 
 namespace DungeonCrawlerCharacterManagement
 {
@@ -38,19 +37,7 @@ namespace DungeonCrawlerCharacterManagement
             }
 
             Console.Write("Select a skill to assign: ");
-            int skillSelection;
-            while(true)
-            {
-                try
-                {
-                    int.TryParse(Console.ReadLine(), out skillSelection);
-                    break;
-                }catch(Exception e)
-                {
-                    Console.WriteLine($"Invalid selection. Please enter a number in range (1..{_skills.Count})");
-                }
-            }
-            
+            int skillSelection = int.Parse(Console.ReadLine());
             Skill skill = _skills[skillSelection];
 
             if (character.LearnSkill(skill))
@@ -81,7 +68,6 @@ namespace DungeonCrawlerCharacterManagement
         {
             while(true)
             {
-                Console.WriteLine("Main Menu:\n1. Create a character\n2. Assign skills\n3. Level up a character\n4. Display all character sheets\n5. Exit");
                 Console.Write("Enter your choice: ");
                 int choice = int.Parse(Console.ReadLine());
                 string name;
