@@ -25,8 +25,21 @@ namespace DungeonCrawlerCharacterManagement
             _characterList.Add(new Character(name, charClass, attributePoints));
         }
 
-        private void AssignSkill(Character character, Skill skill)
+        private void AssignSkillToACharacter(Character character)
         {
+            
+
+            Console.WriteLine($"\nTotal Attribute Points for this character: {character.AvailableAttributePoints}");
+            Console.WriteLine($"Available skills:");
+            foreach (Skill s in _skills)
+            {
+                Console.WriteLine($"{_skills.IndexOf(s) + 1}. {s}");
+            }
+
+            Console.Write("Select a skill to assign: ");
+            int skillSelection = int.Parse(Console.ReadLine());
+            Skill skill = _skills[skillSelection];
+
             if (character.LearnSkill(skill))
             {
                 Console.WriteLine($"Skill: {skill.Name} added to {character.Name}");
@@ -53,7 +66,38 @@ namespace DungeonCrawlerCharacterManagement
 
         public void RunMenu()
         {
-            
+            while(true)
+            {
+                Console.Write("Enter your choice: ");
+                int choice = int.Parse(Console.ReadLine());
+                string name;
+                switch(choice)
+                {
+                    case 1:
+                        CreateCharacter();
+                        break;
+                    case 2:
+                        Console.Write("Enter character name: ");
+                        name = Console.ReadLine();
+                        AssignSkillToACharacter(DCCMHelperFunctions.GetObjectByNamePropertyFromEnumerable(_characterList, name));
+                        break;
+                    case 3:
+                     Console.Write("Enter character name: ");
+                        name = Console.ReadLine();
+
+                        LevelUpACharacter(DCCMHelperFunctions.GetObjectByNamePropertyFromEnumerable(_characterList, name));
+                        break;
+                    case 4:
+                        DisplayAllCharacterSheets();
+                        break;
+                    case 5:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Please select a valid option.");
+                        break;
+                }
+            }
         }
     }
 }

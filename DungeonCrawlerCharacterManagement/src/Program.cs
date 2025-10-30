@@ -7,9 +7,6 @@ namespace DungeonCrawlerCharacterManagement
     {
         public static void Main(String[] args)
         {
-
-            CharacterManagementMenu menu = new CharacterManagementMenu();
-            List<CharacterManagementMenu> menuList = [menu];
             List<Character> characters = new List<Character>();
 
             List<Skill> skills = new List<Skill>
@@ -25,10 +22,6 @@ namespace DungeonCrawlerCharacterManagement
             monk.LearnSkill(skills[1]);
             characters.Add(monk);
             characters.Add(priest);
-
-
-            CharacterManagementMenu character = DCCMHelperFunctions.GetObjectByNamePropertyFromEnumerable(menuList, "Frank");
-            Console.WriteLine(character);
         }
     }
 }
