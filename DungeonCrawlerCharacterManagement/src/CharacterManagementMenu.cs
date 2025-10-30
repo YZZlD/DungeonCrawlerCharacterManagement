@@ -15,9 +15,9 @@ namespace DungeonCrawlerCharacterManagement
 
         private void CreateCharacter()
         {
-            Console.Write("Enter name:");
+            Console.Write("Enter name: ");
             string name = Console.ReadLine();
-            Console.Write("Enter class:");
+            Console.Write("Enter class: ");
             string charClass = Console.ReadLine();
             Console.Write("Enter Total Attribute Points: ");
             int attributePoints = int.Parse(Console.ReadLine());
@@ -68,29 +68,30 @@ namespace DungeonCrawlerCharacterManagement
         {
             while(true)
             {
+                Console.WriteLine("Main Menu:\n1. Create a character\n2. Assign skills\n3. Level up a character\n4. Display all character sheets\n5. Exit");
                 Console.Write("Enter your choice: ");
-                int choice = int.Parse(Console.ReadLine());
+                string choice = Console.ReadLine();
                 string name;
                 switch(choice)
                 {
-                    case 1:
+                    case "1":
                         CreateCharacter();
                         break;
-                    case 2:
+                    case "2":
                         Console.Write("Enter character name: ");
                         name = Console.ReadLine();
                         AssignSkillToACharacter(DCCMHelperFunctions.GetObjectByNamePropertyFromEnumerable(_characterList, name));
                         break;
-                    case 3:
+                    case "3":
                      Console.Write("Enter character name: ");
                         name = Console.ReadLine();
 
                         LevelUpACharacter(DCCMHelperFunctions.GetObjectByNamePropertyFromEnumerable(_characterList, name));
                         break;
-                    case 4:
+                    case "4":
                         DisplayAllCharacterSheets();
                         break;
-                    case 5:
+                    case "5":
                         Environment.Exit(0);
                         break;
                     default:
