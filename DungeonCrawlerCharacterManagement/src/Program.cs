@@ -6,6 +6,7 @@ namespace DungeonCrawlerCharacterManagement
     {
         public static void Main(String[] args)
         {
+
             List<Character> characters = new List<Character>();
 
             List<Skill> skills = new List<Skill>
@@ -16,8 +17,15 @@ namespace DungeonCrawlerCharacterManagement
             };
 
             Character monk = new Character("Frank", "Monk", 10);
-            //monk.LearnSkill(skills[0]);
-            Console.WriteLine(monk);
+            Character priest = new Character("Franklin", "Priest", 20);
+            monk.LearnSkill(skills[0]);
+            monk.LearnSkill(skills[1]);
+            characters.Add(monk);
+            characters.Add(priest);
+
+
+            Character character = DCCMHelperFunctions.GetObjectByNamePropertyFromEnumerable(characters, "Frank");
+            Console.WriteLine(character);
         }
     }
 }
