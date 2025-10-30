@@ -16,7 +16,12 @@ namespace DungeonCrawlerCharacterManagement
 
         public Skill()
         {
-            
+
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Description} - {Attribute} - Point Requirement: {RequiredAttributePoints}";
         }
     }
 }

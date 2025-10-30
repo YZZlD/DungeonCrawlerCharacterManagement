@@ -16,8 +16,8 @@ namespace DungeonCrawlerCharacterManagement
             };
 
             Character monk = new Character("Frank", "Monk", 10);
-            monk.LearnSkill(skills[0]);
-            Console.WriteLine(monk.Skills);
+            //monk.LearnSkill(skills[0]);
+            Console.WriteLine(monk);
         }
     }
 }
