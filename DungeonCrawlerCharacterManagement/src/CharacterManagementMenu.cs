@@ -38,7 +38,7 @@ namespace DungeonCrawlerCharacterManagement
 
             Console.Write("Select a skill to assign: ");
             int skillSelection = int.Parse(Console.ReadLine());
-            Skill skill = _skills[skillSelection];
+            Skill skill = _skills[skillSelection - 1];
 
             if (character.LearnSkill(skill))
             {

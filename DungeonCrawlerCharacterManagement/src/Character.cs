@@ -33,6 +33,7 @@ namespace DungeonCrawlerCharacterManagement
             if (AvailableAttributePoints < skill.RequiredAttributePoints) return false;
 
             Skills.Add(skill);
+            AvailableAttributePoints -= skill.RequiredAttributePoints;
             return true;
         }
 
