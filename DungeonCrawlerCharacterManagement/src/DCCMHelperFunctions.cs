@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Reflection.Metadata.Ecma335;
+using Microsoft.CSharp.RuntimeBinder;
 
 namespace DungeonCrawlerCharacterManagement
 {
@@ -14,9 +15,10 @@ namespace DungeonCrawlerCharacterManagement
                 try
                 {
                     if (o.Name == name) return obj;
-                } catch(Exception e)
+                } catch(RuntimeBinderException e)
                 {
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine("Object does not have property [Name].");
+                    return default;
                 } 
             }
 

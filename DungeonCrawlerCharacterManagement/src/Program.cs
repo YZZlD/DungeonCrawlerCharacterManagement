@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.PortableExecutable;
 
 namespace DungeonCrawlerCharacterManagement
 {
@@ -7,6 +8,8 @@ namespace DungeonCrawlerCharacterManagement
         public static void Main(String[] args)
         {
 
+            CharacterManagementMenu menu = new CharacterManagementMenu();
+            List<CharacterManagementMenu> menuList = [menu];
             List<Character> characters = new List<Character>();
 
             List<Skill> skills = new List<Skill>
@@ -24,7 +27,7 @@ namespace DungeonCrawlerCharacterManagement
             characters.Add(priest);
 
 
-            Character character = DCCMHelperFunctions.GetObjectByNamePropertyFromEnumerable(characters, "Frank");
+            CharacterManagementMenu character = DCCMHelperFunctions.GetObjectByNamePropertyFromEnumerable(menuList, "Frank");
             Console.WriteLine(character);
         }
     }
